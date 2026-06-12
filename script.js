@@ -8,10 +8,10 @@ document.getElementById('leadForm').addEventListener('submit', function(event) {
     const vidas = document.getElementById('vidas').value;
     const idades = document.getElementById('idades').value;
 
-    // PEGAR AS OPERADORAS SELECIONADAS
-    const selectOperadoras = document.getElementById('operadoras');
-    const operadorasSelecionadas = Array.from(selectOperadoras.selectedOptions).map(option => option.value);
-    const operadorasTexto = operadorasSelecionadas.length > 0 ? operadorasSelecionadas.join(', ') : 'Não especificado';
+    // PEGAR AS OPERADORAS MARCADAS (CHECKBOXES)
+    const checkboxes = document.querySelectorAll('input[name="operadora"]:checked');
+    const operadorasSelecionadas = Array.from(checkboxes).map(cb => cb.value);
+    const operadorasTexto = operadorasSelecionadas.length > 0 ? operadorasSelecionadas.join(', ') : 'Nenhuma selecionada';
 
     // MENSAGEM FORMATADA PARA O WHATSAPP
     const mensagem = `*NOVO LEAD - BRASILSEGUROS*%0A%0A` +
@@ -25,6 +25,6 @@ document.getElementById('leadForm').addEventListener('submit', function(event) {
     // SEU NÚMERO DE ATENDIMENTO
     const numeroCorretor = "551134125912";
 
-    // ABRIR WHATSAPP COM OS DADOS PRONTOS
+    // ABRIR WHATSAPP
     window.open(`https://wa.me/${numeroCorretor}?text=${mensagem}`, '_blank');
 });
