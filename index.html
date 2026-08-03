@@ -96,7 +96,17 @@ fbq('track', 'PageView');
             <option value="Não sei / Quero orientação">Não sei / Quero orientação</option>
         </select>
     </div>
+<div class="form-group">
+    <select id="estado" required>
+        <option value="" disabled selected>Selecione seu Estado</option>
+        <option value="SP">São Paulo (SP)</option>
+        <option value="RJ">Rio de Janeiro (RJ)</option>
+    </select>
+</div>
 
+<div class="form-group">
+    <input type="text" id="cidade" placeholder="Sua Cidade" required>
+</div>
     <div class="form-group">
         <input type="number" id="vidas" placeholder="Quantidade de pessoas (vidas)" min="1" required>
     </div>
