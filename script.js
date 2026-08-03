@@ -7,6 +7,9 @@ document.getElementById('leadForm').addEventListener('submit', function(event) {
     const tipoPlano = document.getElementById('tipoPlano').value;
     const vidas = document.getElementById('vidas').value;
     const idades = document.getElementById('idades').value;
+    const estado = document.getElementById('estado').value;
+    const cidade = document.getElementById('cidade').value;
+    `*Localização:* ${encodeURIComponent(cidade)} - ${encodeURIComponent(estado)}%0A` +
 
     // PEGAR AS OPERADORAS MARCADAS (CHECKBOXES)
     const checkboxes = document.querySelectorAll('input[name="operadora"]:checked');
@@ -17,8 +20,8 @@ document.getElementById('leadForm').addEventListener('submit', function(event) {
     const mensagem = `*NOVO LEAD - BRASILSEGUROS*%0A%0A` +
                      `*Nome:* ${encodeURIComponent(nome)}%0A` +
                      `*WhatsApp:* ${encodeURIComponent(telefone)}%0A` +
-        const estado = document.getElementById('estado').value;
-const cidade = document.getElementById('cidade').value;
+        
+    `*Localização:* ${encodeURIComponent(cidade)} - ${encodeURIComponent(estado)}%0A` +
                      `*Plano:* ${encodeURIComponent(tipoPlano)}%0A` +
                      `*Quantidade de Vidas:* ${encodeURIComponent(vidas)}%0A` +
                      `*Idades:* ${encodeURIComponent(idades)}%0A` +
