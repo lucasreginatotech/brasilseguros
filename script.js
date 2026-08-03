@@ -5,23 +5,25 @@ document.getElementById('leadForm').addEventListener('submit', function(event) {
     const nome = document.getElementById('nome').value;
     const telefone = document.getElementById('telefone').value;
     const tipoPlano = document.getElementById('tipoPlano').value;
-    const vidas = document.getElementById('vidas').value;
-    const idades = document.getElementById('idades').value;
     const estado = document.getElementById('estado').value;
     const cidade = document.getElementById('cidade').value;
-    `*Localização:* ${encodeURIComponent(cidade)} - ${encodeURIComponent(estado)}%0A` +
 
-    // PEGAR AS OPERADORAS MARCADAS (CHECKBOXES)
+    // PEGAR CAMPOS OPCIONAIS (caso existam no seu HTML)
+    const vidasInput = document.getElementById('vidas');
+    const idadesInput = document.getElementById('idades');
+    const vidas = vidasInput ? vidasInput.value : 'Não informado';
+    const idades = idadesInput ? idadesInput.value : 'Não informado';
+
+    // PEGAR AS OPERADORAS MARCADAS (se houver checkboxes)
     const checkboxes = document.querySelectorAll('input[name="operadora"]:checked');
     const operadorasSelecionadas = Array.from(checkboxes).map(cb => cb.value);
-    const operadorasTexto = operadorasSelecionadas.length > 0 ? operadorasSelecionadas.join(', ') : 'Nenhuma selecionada';
+    const operadorasTexto = operadorasSelecionadas.length > 0 ? operadorasSelecionadas.join(', ') : 'Não informado';
 
     // MENSAGEM FORMATADA PARA O WHATSAPP
     const mensagem = `*NOVO LEAD - BRASILSEGUROS*%0A%0A` +
                      `*Nome:* ${encodeURIComponent(nome)}%0A` +
                      `*WhatsApp:* ${encodeURIComponent(telefone)}%0A` +
-        
-    `*Localização:* ${encodeURIComponent(cidade)} - ${encodeURIComponent(estado)}%0A` +
+                     `*Localização:* ${encodeURIComponent(cidade)} - ${encodeURIComponent(estado)}%0A` +
                      `*Plano:* ${encodeURIComponent(tipoPlano)}%0A` +
                      `*Quantidade de Vidas:* ${encodeURIComponent(vidas)}%0A` +
                      `*Idades:* ${encodeURIComponent(idades)}%0A` +
