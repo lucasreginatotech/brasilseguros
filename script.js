@@ -17,6 +17,8 @@ document.getElementById('leadForm').addEventListener('submit', function(event) {
     const mensagem = `*NOVO LEAD - BRASILSEGUROS*%0A%0A` +
                      `*Nome:* ${encodeURIComponent(nome)}%0A` +
                      `*WhatsApp:* ${encodeURIComponent(telefone)}%0A` +
+        const estado = document.getElementById('estado').value;
+const cidade = document.getElementById('cidade').value;
                      `*Plano:* ${encodeURIComponent(tipoPlano)}%0A` +
                      `*Quantidade de Vidas:* ${encodeURIComponent(vidas)}%0A` +
                      `*Idades:* ${encodeURIComponent(idades)}%0A` +
